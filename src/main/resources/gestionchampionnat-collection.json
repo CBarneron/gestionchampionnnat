@@ -1,0 +1,342 @@
+{
+  "info": {
+    "_postman_id": "12345678-1234-1234-1234-123456789012",
+    "name": "Gestion Championnat API",
+    "description": "Postman collection for the Gestion Championnat API, including requests for users, championships, games, and days.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Get All Users",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users"]
+            }
+          }
+        },
+        {
+          "name": "Create User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"John Doe\", \"email\": \"john@example.com\"}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/users",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users"]
+            }
+          }
+        },
+        {
+          "name": "Get User by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/{{userId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", "{{userId}}"]
+            }
+          }
+        },
+        {
+          "name": "Update User",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"John Doe Updated\", \"email\": \"john.updated@example.com\"}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/users/{{userId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", "{{userId}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete User",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/{{userId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", "{{userId}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Championships",
+      "item": [
+        {
+          "name": "Get All Championships",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/championships",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "championships"]
+            }
+          }
+        },
+        {
+          "name": "Create Championship",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"Championship 1\"}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/championships",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "championships"]
+            }
+          }
+        },
+        {
+          "name": "Get Championship by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/championships/{{championshipId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "championships", "{{championshipId}}"]
+            }
+          }
+        },
+        {
+          "name": "Update Championship",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"Championship 1 Updated\"}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/championships/{{championshipId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "championships", "{{championshipId}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Championship",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/championships/{{championshipId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "championships", "{{championshipId}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Games",
+      "item": [
+        {
+          "name": "Get All Games",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Games",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Games"]
+            }
+          }
+        },
+        {
+          "name": "Create Game",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"Game 1\"}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Games",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Games"]
+            }
+          }
+        },
+        {
+          "name": "Get Game by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Games/{{gameId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Games", "{{gameId}}"]
+            }
+          }
+        },
+        {
+          "name": "Update Game",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"Game 1 Updated\"}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Games/{{gameId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Games", "{{gameId}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Game",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Games/{{gameId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Games", "{{gameId}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Days",
+      "item": [
+        {
+          "name": "Get All Days",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Days",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Days"]
+            }
+          }
+        },
+        {
+          "name": "Create Day",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"Day 1\"}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Days",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Days"]
+            }
+          }
+        },
+        {
+          "name": "Get Day by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Days/{{dayId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Days", "{{dayId}}"]
+            }
+          }
+        },
+        {
+          "name": "Update Day",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"Day 1 Updated\"}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Days/{{dayId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Days", "{{dayId}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Day",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Days/{{dayId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Days", "{{dayId}}"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
