@@ -30,22 +30,18 @@ public class User {
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false,length = 50)
     @NotNull(message = "Le champ firstname ne peut être null")
     @NotBlank( message = "Le champ firstname ne peut être vide")
     private String firstName;
     
-    @Column(nullable = false,length = 50)
     @NotNull(message = "Le champ lastname ne peut être null")
     @NotBlank( message = "Le champ lastname ne peut être vide") 
     private String lastName;
 
-    @Column(nullable = false,length = 50)
     @NotNull(message = "Le champ email ne peut être null")
     @NotBlank( message = "Le champ email ne peut être vide")
     private String email;
     
-    @Column(nullable = false,length = 50)
     @NotNull(message = "Le champ password ne peut être null")
     @NotBlank( message = "Le champ password ne peut être vide")
     private String password;
@@ -55,4 +51,27 @@ public class User {
     @JsonFormat(pattern = "yyyy-MM-dd")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate creationDate;
+
+    /**
+     * Constructeur par défaut
+     *
+     */
+    public User() {}    
+
+    /**
+     * Constructeur avec paramètres
+     * @param firstName
+     * @param lastName
+     * @param email
+     * @param password
+     * @param creationDate
+     */
+    public User(String firstName, String lastName, String email, String password, LocalDate creationDate) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.creationDate = creationDate;
+    }
+
 }

@@ -17,18 +17,17 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@Table(name = "days")
 public class Day {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "number")
     @NotNull(message = "Le champ nom de journée ne peut pas être null")
     @NotBlank(message = "Le champ nom de journée ne peut pas être vide")
     private String number;
 
-    @Column(name = "championship_id", nullable = false)
     @NotNull(message = "L'id de championnat ne peut pas être null")
     @Min(value = 1, message = "L'id de championnat ne peut être négatif")
     private Long championshipId;
