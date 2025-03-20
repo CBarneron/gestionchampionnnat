@@ -1,0 +1,13 @@
+TODO Ajouter le spring Sécurity pour les mots de passe
+TODO Dans les repository modifier les CRUDRepositroye n JPARepository et nettoyer les fichiers
+TODO Vérifier les relation ManyToOne/OneToMany/ManyToOne
+TODO Ajouter le spring Sécurity pour les mots de passe
+TODO Faire le initializeData
+TODO Refacto des Controller 
+TODO Faire test PostMan avec  export des test
+
+###BONUS
+TODO Si le temps fais des services
+TODO HEALTH Check
+TODO Info API avec branch
+TODO Voir pour le JWT

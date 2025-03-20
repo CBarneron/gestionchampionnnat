@@ -37,7 +37,8 @@ public class Team {
 
     @NotNull(message = "Le champ creationDate ne peut pas être null")
     @Temporal(TemporalType.DATE)
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yy-MM-dd")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate creationDate;
+
 }

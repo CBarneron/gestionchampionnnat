@@ -11,6 +11,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -62,4 +65,13 @@ public class Championship {
     @NotNull(message = "Le champ points pour un match null du championnat ne peut pas être null")
     private int drawPoint;
 
+    //FIXME verifier la liaison many to many
+    @ManyToMany
+    @JoinTable(name="TeamChampionShip",
+        joinColumns=
+            @JoinColumn(name="idChampionShip", referencedColumnName="ID"),
+        inverseJoinColumns=
+            @JoinColumn(name="idTeam", referencedColumnName="ID")
+        )
+    public Set<Id> getChampionshipById() { return id; }
 }
