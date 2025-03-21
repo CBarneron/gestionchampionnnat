@@ -1,13 +1,10 @@
 package com.ipi.gestionchampionnat.models;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -31,7 +28,5 @@ public class Day {
     @NotNull(message = "L'id de championnat ne peut pas être null")
     @Min(value = 1, message = "L'id de championnat ne peut être négatif")
     private Long championshipId;
-
-    //TODO Many to one  de days a championShip Vérifier ce qu'a fait alvin 
     
 }

@@ -1,14 +1,15 @@
 package com.ipi.gestionchampionnat.config;
 
 import java.time.LocalDate;
-import java.util.HashSet;
 import java.util.Set;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.ipi.gestionchampionnat.models.Championship;
 import com.ipi.gestionchampionnat.models.Day;
@@ -24,6 +25,8 @@ import com.ipi.gestionchampionnat.repository.UserRepository;
 @Configuration
 public class DataInitializer {
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
     @Bean
     CommandLineRunner initData(
             ChampionshipRepository championshipRepository,
@@ -114,11 +117,11 @@ public class DataInitializer {
             log.info("Games found with findAll():");
             log.info("-------------------------------");
             // Initialisation des utilisateurs
-            User user1 = new User("John", "Doe", "john.doe@example.com", "password123", LocalDate.of(2020, 1, 1));
-            User user2 = new User("Jane", "Smith", "jane.smith@example.com", "password123", LocalDate.of(2021, 2, 1));
-            User user3 = new User("Alice", "Johnson", "alice.johnson@example.com", "password123", LocalDate.of(2022, 3, 1));
-            User user4 = new User("Bob", "Brown", "bob.brown@example.com", "password123", LocalDate.of(2023, 4, 1));
-            User user5 = new User("Charlie", "Davis", "charlie.davis@example.com", "password123", LocalDate.of(2024, 5, 1));
+            User user1 = new User("John", "Doe", "john.doe@example.com", passwordEncoder.encode("password123"), LocalDate.of(2020, 1, 1));
+            User user2 = new User("Jane", "Smith", "jane.smith@example.com", passwordEncoder.encode("password123"), LocalDate.of(2021, 2, 1));
+            User user3 = new User("Alice", "Johnson", "alice.johnson@example.com", passwordEncoder.encode("password123"), LocalDate.of(2022, 3, 1));
+            User user4 = new User("Bob", "Brown", "bob.brown@example.com", passwordEncoder.encode("password123"), LocalDate.of(2023, 4, 1));
+            User user5 = new User("Charlie", "Davis", "charlie.davis@example.com", passwordEncoder.encode("password123"), LocalDate.of(2024, 5, 1));
             userRepository.saveAll(Set.of(user1, user2, user3, user4, user5));
             log.info("Users found with findAll():");
             log.info("-------------------------------");
