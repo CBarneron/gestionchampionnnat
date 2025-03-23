@@ -45,20 +45,35 @@ public class TeamController {
         return teamRepository.findById(id).orElse(null);
     }
 
-    //TODO  a Finir
+    // Mettre à jour un résultat
     @PutMapping("/{id}")
     public ResponseEntity<Team> updateTeam(@PathVariable Long id, @RequestBody Team team) {
-        team.setId(id);
+        team.setId(team.getId());
         teamRepository.save(team);
+
         return new ResponseEntity<>(team, HttpStatus.OK);
     }
 
 
-    // TODO a finir
     @DeleteMapping("/{id}")
-    public void deleteTeam(@PathVariable Long id) {
-        teamRepository.deleteById(id);
+    public ResponseEntity<String> deleteTeam(@PathVariable Long id) {
+        try {
+            Team team = teamRepository.findById(id)
+                    .orElseThrow(() -> new RuntimeException("Équipe non trouvée"));
+    
+            team.getChampionships().forEach(championship -> championship.getTeams().remove(team));
+            team.getChampionships().clear();
+            teamRepository.save(team);
+    
+            teamRepository.deleteById(id);
+            return ResponseEntity.ok("Équipe supprimée avec succès !");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Erreur lors de la suppression de l'équipe : " + e.getMessage());
+        }
     }
+    
+    
 
     @GetMapping("/championship/{championshipId}")
     public List<Team> getTeamsByChampionshipId(@PathVariable Long championshipId) {

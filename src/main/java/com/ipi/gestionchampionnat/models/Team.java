@@ -17,6 +17,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -49,14 +50,26 @@ public class Team {
     @ManyToMany(fetch = FetchType.LAZY,
     cascade = {
     CascadeType.PERSIST,
-    CascadeType.MERGE
+    CascadeType.MERGE,
+    CascadeType.REMOVE
     },
     mappedBy = "teams")
     @JsonIgnore
     private Set<Championship> championships = new HashSet<>();
+   
+    
+    @OneToMany(mappedBy = "team1", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
+    private Set<Game> gamesAsTeam1 = new HashSet<>();
+
+    @OneToMany(mappedBy = "team2", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
+    private Set<Game> gamesAsTeam2 = new HashSet<>();
+
     /**constructeur par défaut */
     public Team() {
     }
+   
     /**Constructeur avec paramètres
      *
      * @param name
