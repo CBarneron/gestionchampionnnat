@@ -49,13 +49,13 @@ public class User {
     @Temporal(TemporalType.DATE)
     @JsonFormat(pattern = "yyyy-MM-dd")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate creationDate;
+    private LocalDate creationDate = LocalDate.now();
 
     /**
      * Constructeur par défaut
      *
      */
-    public User() {}    
+    public User() {}
 
     /**
      * Constructeur avec paramètres

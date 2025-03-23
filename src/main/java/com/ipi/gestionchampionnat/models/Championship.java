@@ -89,6 +89,10 @@ public class Championship {
         this.lostPoint = lostPoint;
         this.drawPoint = drawPoint;
     }
+    
+    public void addTeam(Team team) {
+        teams.add(team);
+    }
 
     
 }

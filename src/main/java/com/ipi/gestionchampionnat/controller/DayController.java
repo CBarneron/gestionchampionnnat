@@ -3,12 +3,14 @@ package com.ipi.gestionchampionnat.controller;
 import com.ipi.gestionchampionnat.models.Day;
 import com.ipi.gestionchampionnat.repository.DayRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/Days")
+@RequestMapping("/api/days")
 public class DayController {
 
     @Autowired
@@ -20,8 +22,9 @@ public class DayController {
     }
 
     @PostMapping
-    public Day createDay(@RequestBody Day Day) {
-        return dayRepository.save(Day);
+    public ResponseEntity<Day> createDay(@RequestBody Day day) {
+        dayRepository.save(day);
+        return new ResponseEntity<>(day, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
@@ -30,9 +33,10 @@ public class DayController {
     }
 
     @PutMapping("/{id}")
-    public Day updateDay(@PathVariable Long id, @RequestBody Day Day) {
-        Day.setId(id);
-        return dayRepository.save(Day);
+    public ResponseEntity<Day> updateDay(@PathVariable Long id, @RequestBody Day day) {
+        day.setId(id);
+        dayRepository.save(day);
+        return new ResponseEntity<>(day, HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")

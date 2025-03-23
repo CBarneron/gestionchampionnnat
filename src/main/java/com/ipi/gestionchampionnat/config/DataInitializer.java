@@ -79,36 +79,36 @@ public class DataInitializer {
             log.info("-------------------------------");
             // Initialisation des jeux
             Game game1 = new Game();
-            game1.setNumber("Game 1");
-            game1.setChampionshipId(championship1.getId());
+            game1.setTeam1Point(1);
+            game1.setTeam2Point(3);
             game1.setTeam1(team1);
             game1.setTeam2(team2);
             game1.setDay(day1);
             
             Game game2 = new Game();
-            game2.setNumber("Game 2");
-            game2.setChampionshipId(championship1.getId());
+            game2.setTeam1Point(4);
+            game2.setTeam2Point(1);
             game2.setTeam1(team3);
             game2.setTeam2(team1);
             game2.setDay(day2);
 
             Game game3 = new Game();
-            game3.setNumber("Game 3");
-            game3.setChampionshipId(championship2.getId());
+            game3.setTeam1Point(4);
+            game3.setTeam2Point(1);
             game3.setTeam1(team4);
             game3.setTeam2(team5);
             game3.setDay(day3);
 
             Game game4 = new Game();
-            game4.setNumber("Game 4");
-            game4.setChampionshipId(championship2.getId());
+            game4.setTeam1Point(4);
+            game4.setTeam2Point(1);
             game4.setTeam1(team5);
             game4.setTeam2(team4);
             game4.setDay(day4);
 
             Game game5 = new Game();
-            game5.setNumber("Game 5");
-            game5.setChampionshipId(championship2.getId());
+            game5.setTeam1Point(4);
+            game5.setTeam2Point(1);
             game5.setTeam1(team4);
             game5.setTeam2(team3);
             game5.setDay(day5);

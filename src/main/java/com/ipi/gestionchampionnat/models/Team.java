@@ -43,7 +43,7 @@ public class Team {
     @Temporal(TemporalType.DATE)
     @JsonFormat(pattern = "yy-MM-dd")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate creationDate;
+    private LocalDate creationDate = LocalDate.now();
 
 
     @ManyToMany(fetch = FetchType.LAZY,
@@ -58,10 +58,10 @@ public class Team {
     public Team() {
     }
     /**Constructeur avec paramètres
-     * 
+     *
      * @param name
      * @param creationDate
-     */   
+     */
     public Team(String name, LocalDate creationDate) {
         this.name = name;
         this.creationDate = creationDate;

@@ -28,5 +28,4 @@ public class Day {
     @NotNull(message = "L'id de championnat ne peut pas être null")
     @Min(value = 1, message = "L'id de championnat ne peut être négatif")
     private Long championshipId;
-    
 }
